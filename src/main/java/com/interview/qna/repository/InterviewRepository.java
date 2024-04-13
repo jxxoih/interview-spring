@@ -26,12 +26,12 @@ public class InterviewRepository {
     }
 
     public List<Question> findQuestions(int q_type) {
-        return em.createQuery("select q from Question q where q.q_type = :q_type", Question.class)
+        return em.createQuery("select q from Question q where q.q_type = :q_type ORDER BY RAND()", Question.class)
                 .setParameter("q_type", q_type)
                 .getResultList();
     }
     public List<Question> findQuestionsTypeOfAll(int q_type) {
-        return em.createQuery("select q from Question q where q.q_type IN (1,2,3)", Question.class)
+        return em.createQuery("select q from Question q where q.q_type IN (1,2,3) ORDER BY RAND()", Question.class)
                 .getResultList();
     }
 
